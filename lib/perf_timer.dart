@@ -6,7 +6,7 @@ class TimerNotFoundException implements Exception {
 }
 
 // Perf timer
-class Perf {
+class PerfTimer {
   static bool devOnly = true;
   static bool isDev = (() {
     bool isDev = false;
@@ -55,7 +55,8 @@ class Perf {
     _time[label].add(_timers[label].elapsedMicroseconds);
   }
 
-  toString() {
+  /// Returns formatted string with all timers results
+  static String report() {
     if (devOnly && !isDev) {
       return '';
     }

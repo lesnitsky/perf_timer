@@ -12,18 +12,16 @@ Perf timer for dart and flutter
 import 'package:perf_timer/perf_timer.dart';
 
 void main() {
-    final t = new PerfTimer();
-
-    t.start('computation 1');
+    PerfTimer.start('computation 1');
     someLongComputation();
-    t.pause('computation 1');
+    PerfTimer.pause('computation 1');
 
-    t.start('computation 2');
+    PerfTimer.start('computation 2');
     someOtherLongComputation();
-    t.pause('computation 2');
+    PerfTimer.pause('computation 2');
 
-    print(t);
-    t.stop();
+    print(PerfTimer.report());
+    PerfTimer.stop();
 }
 ```
 
