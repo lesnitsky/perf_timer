@@ -3,6 +3,8 @@
 Perf timer for dart and flutter
 Works only in dev mode
 
+![iTerm Screenshot](https://s3.eu-west-2.amazonaws.com/screenshots-lesnitsky/perf_timer.png)
+
 ## Example
 
 ```dart
