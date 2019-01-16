@@ -1,6 +1,6 @@
 name: perf_timer
 description: Perf timer for dart and flutter
-version: 1.0.2
+version: 1.0.3
 author: Andrei Lesnitsky <andrei.lesnitsky@gmail.com>
 homepage: https://github.com/lesnitsky/perf_timer
 

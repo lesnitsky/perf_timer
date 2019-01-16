@@ -19,8 +19,8 @@ class PerfTimer {
     return isDev;
   })();
 
-  static Map<String, List<int>> _time;
-  static Map<String, Stopwatch> _timers;
+  static Map<String, List<int>> _time = {};
+  static Map<String, Stopwatch> _timers = {};
 
   /// Starts timer for specific [label]
   /// Call [pause] to pause a timer
