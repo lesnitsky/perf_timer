@@ -34,7 +34,7 @@ class PerfTimer {
       _timers[label].reset();
       _timers[label].start();
     } else {
-      _timers[label] = new Stopwatch();
+      _timers[label] = new Stopwatch()..start();
       _time[label] = [];
     }
   }
