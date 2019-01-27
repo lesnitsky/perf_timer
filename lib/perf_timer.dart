@@ -8,6 +8,7 @@ class TimerNotFoundException implements Exception {
 // Perf timer
 class PerfTimer {
   static bool devOnly = true;
+  static bool useMilliseconds = true;
   static bool isDev = (() {
     bool isDev = false;
 
@@ -112,14 +113,22 @@ class PerfTimer {
         percentsString = percents.toStringAsFixed(2);
       }
 
-      str += '\n$percentsString% $label$value';
+      String valueStr = value.toString();
+      if (useMilliseconds == true) {
+        valueStr = (value / 1000).toStringAsFixed(2) + " ms";
+      }
+      str += '\n$percentsString% $label$valueStr';
       return str;
     });
 
     final dotsCount = longestLabelLength - totalLabel.length + 3;
     final dots = '.' * dotsCount;
 
-    result += '\n\n${' ' * 7}$totalLabel$dots$totalTime';
+    String totalTimeStr = totalTime.toString();
+    if (useMilliseconds == true) {
+      totalTimeStr = (totalTime / 1000).toStringAsFixed(2) + " ms";
+    }
+    result += '\n\n${' ' * 7}$totalLabel$dots$totalTimeStr';
 
     return result;
   }
