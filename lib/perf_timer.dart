@@ -113,10 +113,11 @@ class PerfTimer {
         percentsString = percents.toStringAsFixed(2);
       }
 
-      String valueStr = value.toString();
-      if (useMicroseconds == false) {
-        valueStr = (value / 1000).toStringAsFixed(2) + " ms";
-      }
+      String valueStr;
+      useMicroseconds
+          ? valueStr = value.toString()
+          : valueStr = (value / 1000).toStringAsFixed(2) + " ms";
+
       str += '\n$percentsString% $label$valueStr';
       return str;
     });
@@ -124,10 +125,12 @@ class PerfTimer {
     final dotsCount = longestLabelLength - totalLabel.length + 3;
     final dots = '.' * dotsCount;
 
-    String totalTimeStr = totalTime.toString();
-    if (useMicroseconds == false) {
-      totalTimeStr = (totalTime / 1000).toStringAsFixed(2) + " ms";
-    }
+    String totalTimeStr;
+
+    useMicroseconds
+        ? totalTimeStr = totalTime.toString()
+        : totalTimeStr = (totalTime / 1000).toStringAsFixed(2) + " ms";
+
     result += '\n\n${' ' * 7}$totalLabel$dots$totalTimeStr';
 
     return result;
